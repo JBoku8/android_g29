@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "655664447405",
+    "project_id": "email-password-g29",
+    "storage_bucket": "email-password-g29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655664447405:android:b5f2ada7613ea16c0dab24",
+        "android_client_info": {
+          "package_name": "com.example.email_password_firebase_g29"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655664447405-ie7j8rdsob2m0i0e2lpe0kqp0din0i1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA92KEsnyWG33G-4vPM4u96PaBxOIRT4UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655664447405-ie7j8rdsob2m0i0e2lpe0kqp0din0i1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
