@@ -26,6 +26,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        this.title = "Login Page"
+//        setTitle("Login Page")
+
+
         signInButton = findViewById(R.id.signInButton)
         auth = Firebase.auth
 

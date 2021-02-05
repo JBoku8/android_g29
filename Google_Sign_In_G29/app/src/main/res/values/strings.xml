@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Google_Sign_In_G-29</string>
+    <string name="appLogoAlt">Application Description</string>
+    <string name="splashAppTitle">Name of the Application</string>
+    <string name="splashAppDescription">Created by Student 1 Student 2</string>
 </resources>

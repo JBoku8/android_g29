@@ -22,7 +22,7 @@ import com.google.firebase.ktx.Firebase
 
 data class Note(
     val title: String = "",
-    val status: String = ""
+    val status: String = "",
 )
 
 class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
@@ -96,11 +96,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showActionDialog() {
-        val editText = EditText(this)
+        val view = layoutInflater.inflate(R.layout.add_dialog, null)
+
+        val displayNameEditText = view.findViewById<EditText>(R.id.displayNameEditText)
+        val stateEditText = view.findViewById<EditText>(R.id.stateEditText)
+
 
         val dialog = AlertDialog.Builder(this)
             .setTitle("Create new Note")
-            .setView(editText)
+            .setView(view)
             .setNegativeButton("Cancel", null)
             .setPositiveButton("OK", null)
             .show()
@@ -109,20 +113,24 @@ class MainActivity : AppCompatActivity() {
         dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
             Log.i("MAIN_ACTIVITY_TAG", "Clicked on positive button!")
 
-            val stateText = editText.text.toString()
-            if (stateText.isBlank()) {
-                Toast.makeText(this, "Cannot submit empty text", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             val currentUser = auth.currentUser
             if (currentUser == null) {
                 Toast.makeText(this, "No signed in user", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            val displayName = displayNameEditText.text.toString()
+            val stateText = stateEditText.text.toString()
+            if (displayName.isBlank() || stateText.isBlank()) {
+                Toast.makeText(this, "Cannot submit empty text", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val db = Firebase.firestore
 
-            val note = Note(stateText, "Pending");
+            val note = Note(displayName, stateText);
+
+//            db.collection("notes").document(uid).delete()
 
             db.collection("notes").add(note).addOnSuccessListener {   newNote ->
                 Toast.makeText(this, "Note Added", Toast.LENGTH_SHORT).show()
